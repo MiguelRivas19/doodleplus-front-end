@@ -1,3 +1,9 @@
-<p>
-  create works!
-</p>
+<div>
+  <h2>Pour quelle occasion?</h2>
+  Intitule: <input type="text" [(ngModel)]="intitule"><br />
+  Lieu: <input type="text" [(ngModel)]="lieu"><br />
+  Resume: <input type="text" [(ngModel)]="resume"><br />
+  <nav>
+    <a [routerLink]="['/date']" (click)="load()">Next</a>
+  </nav>
+</div>

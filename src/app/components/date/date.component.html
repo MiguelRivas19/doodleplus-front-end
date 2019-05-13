@@ -1,3 +1,17 @@
-<p>
+<div>
   date works!
-</p>
+  <h2>Quelles sont les dates proposées?</h2>
+  Jour: <input type="text" [(ngModel)]="jour"><br />
+  Pause?: <input type="text" [(ngModel)]="pause"><br />
+
+  <h3>Horaire 1</h3>
+  Départ:<input type="text" [(ngModel)]="depart1"><br />
+  Fin: <input type="text" [(ngModel)]="fin1"><br />
+
+  <h3>Horaire 2</h3>
+  Départ:<input type="text" [(ngModel)]="depart2"><br />
+  Fin: <input type="text" [(ngModel)]="fin2"><br />
+  <nav>
+    <a [routerLink]="['/preference']" (click)="load()">Next</a>
+  </nav>
+</div>

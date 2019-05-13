@@ -1,3 +1,14 @@
-<p>
-  preference works!
-</p>
+<div>
+  <h2>Quelles sont vos preferences et allergies?</h2>
+  Preferences:
+  <select *ngIf="preferences" [(ngModel)]="preference">
+   <option *ngFor="let p of preferences" [(ngValue)]="p.intitule" >{{ p.intitule }}</option>
+  </select><br />
+  Allergies:
+  <select *ngIf="allergies" [(ngModel)]="allergie">
+   <option *ngFor="let a of allergies" [(ngValue)]="a.intitule" >{{ a.intitule }}</option>
+  </select><br />
+  <nav>
+    <a [routerLink]="['/participant']" (click)="load()">Next</a>
+  </nav>
+</div>

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CreateComponent } from './components/create/create.component';
@@ -8,6 +10,9 @@ import { PreferenceComponent } from './components/preference/preference.componen
 import { ParticipantComponent } from './components/participant/participant.component';
 
 import { AppRoutes } from './app.routes';
+
+import { DoodleapiService } from './services/doodleapi.service';
+import { DoodleshareService } from './services/doodleshare.service';
 
 @NgModule({
   declarations: [
@@ -18,10 +23,15 @@ import { AppRoutes } from './app.routes';
     ParticipantComponent
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
     AppRoutes,
     BrowserModule
   ],
-  providers: [],
+  providers:  [
+    DoodleapiService,
+    DoodleshareService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

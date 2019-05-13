@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DoodleshareService } from '../../services/doodleshare.service';
+
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParticipantComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+   private doodleshare: DoodleshareService
+  ) { }
 
   ngOnInit() {
   }
