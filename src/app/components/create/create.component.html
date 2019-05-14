@@ -1,9 +1,41 @@
 <div>
-  <h2>Pour quelle occasion?</h2>
-  Intitule: <input type="text" [(ngModel)]="intitule"><br />
-  Lieu: <input type="text" [(ngModel)]="lieu"><br />
-  Resume: <input type="text" [(ngModel)]="resume"><br />
-  <nav>
-    <a [routerLink]="['/date']" (click)="load()">Next</a>
-  </nav>
+  <div class="row" style="height: 20px"></div>
+
+  <div class="row">
+   <div class="col text-center">
+     <h3 class="font-weight-bold text-secondary">Pour quelle occasion?</h3>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
+  <div class="row">
+   <div class="col">
+    <form>
+     <div class="form-group">
+      <label for="id1">Intitule:</label>
+      <input type="text" class="form-control" id="id1" placeholder="Saissisez le titre" [(ngModel)]="intitule" name="intitule">
+     </div>
+     <div class="form-group">
+      <label for="id2">Lieu:</label>
+      <input id="id2" type="text" class="form-control" placeholder="Choissisez un departement de France" [(ngModel)]="lieu" [ngbTypeahead]="search" name="lieu"/>
+     </div>
+     <div class="form-group">
+      <label for="id3">Resume:</label>
+      <input type="text" class="form-control" id="id3" placeholder="Ajoutez un resume" [(ngModel)]="resume" name="resume">
+     </div>
+    </form>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
+  <div class="row justify-content-center">
+   <div class="col-auto">
+    <button type="button" class="btn btn-outline-info" style="width: 150px" [routerLink]="['/date']" (click)="load()">Suivant</button>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
 </div>

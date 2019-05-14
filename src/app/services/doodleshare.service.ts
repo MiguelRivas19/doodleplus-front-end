@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { NgbDateStruct,NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
+
+import { DoodleapiService } from './doodleapi.service';
 
 import { Createur } from '../classes/createur';
 import { Sondage } from '../classes/sondage';
@@ -6,54 +9,70 @@ import { Datesondage } from '../classes/datesondage';
 import { Heuresondage } from '../classes/heuresondage';
 import { Preference } from '../classes/preference';
 import { Allergie } from '../classes/allergie';
+import { Reunion } from '../classes/reunion';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoodleshareService {
+  intitule: string;
+  lieu: string;
+  resume: string;
+  
   createur: Createur;
   sondage: Sondage;
-  date: Datesondage;
-  heure1: Heuresondage;
-  heure2: Heuresondage;
-  preference: Preference;
-  allergie: Allergie;
+  dates: Array<NgbDateStruct>;
+  departs: Array<NgbTimeStruct>;
+  fins: Array<NgbTimeStruct>;
+  pause: Array<string>;
+  preferences: Array<string>;
+  allergies: Array<string>;
+  participants: Array<string>;
 
-  constructor() {
-   this.createur = {
-    prenom: "angel",
-    nom: "rivas",
-    email: "angel.rivas@gmail.com"
-   }
-  }
+  constructor(
+   private doodleapi: DoodleapiService
+  ) {}
 
-  saveSondage(intitule:string, lieu:string, resume: string){
-   this.sondage = {
+  setCreateur(createur: Createur){
+   this.createur = createur;
+   this.sondage = {createur: createur,intitule: this.intitule, lieu: this.lieu, resume: this.resume};
+   let reunion: Reunion = {
     createur: this.createur,
-    intitule: intitule,
-    lieu: lieu,
-    resume: resume
+    sondage: this.sondage,
+    dates: this.dates,
+    departs: this.departs,
+    fins: this.fins,
+    pause: this.pause,
+    preferences: this.preferences,
+    allergies: this.allergies,
+    participants: this.participants
    };
-   console.log(this.sondage); 
+   this.doodleapi.postReunion(reunion);
   }
 
-  saveDates(date:Datesondage, heure1:Heuresondage, heure2:Heuresondage){
-   this.date = date;
-   this.heure1 = heure1;
-   this.heure2 = heure2;
-
-   console.log("save Dates");
-   console.log(this.date);
-   console.log(this.heure1);
-   console.log(this.heure2);
+  setSondage(intitule:string, lieu:string, resume:string){
+   this.intitule = intitule;
+   this.lieu = lieu;
+   this.resume = resume;
   }
-  
-  savePreferences(preference:Preference, allergie: Allergie){
-   this.preference = preference;
-   this.allergie = allergie;
 
-   console.log("save Preference");
-   console.log(this.preference);
-   console.log(this.allergie);
- }
+  setDates(dates: Array<NgbDateStruct>, departs: Array<NgbTimeStruct>, fins: Array<NgbTimeStruct>, pause: Array<string>){
+   this.dates = dates;
+   this.departs = departs;
+   this.fins = fins;
+   this.pause = pause;
+  }
+
+  setPreferences(preferences: Array<string>){
+   this.preferences = preferences;
+  }
+
+  setAllergies(allergies: Array<string>){
+   this.allergies = allergies;
+  }
+
+  setParticipants(participants: Array<string>){
+   this.participants = participants;
+   console.log(participants);
+  }
 }

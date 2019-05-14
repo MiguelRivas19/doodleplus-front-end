@@ -15,8 +15,8 @@ export class PreferenceComponent implements OnInit {
   preferences: Array<Preference>;
   allergies: Array<Allergie>;
 
-  preference: string;
-  allergie: string;
+  preference: Array<string>;
+  allergie: Array<string>;
 
   constructor(
    private doodleshare: DoodleshareService,
@@ -41,7 +41,7 @@ export class PreferenceComponent implements OnInit {
   }
 
   load(){
-   console.log(this.preference);
-   console.log(this.allergie);
+   this.doodleshare.setPreferences(this.preference);
+   this.doodleshare.setAllergies(this.allergie);
   }
 }

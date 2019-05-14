@@ -1,7 +1,48 @@
 <div>
-  <h2>Dites qui vous êtes!</h2>
-  Prenom: <input type="text" [(ngModel)]="prenom"><br />
-  Nom: <input type="text" [(ngModel)]="nom"><br />
-  Courriel: <input type="text" [(ngModel)]="email"><br />
-  <button (click)="load()">Terminer</button>
+  <div class="row" style="height: 20px"></div>
+
+  <div class="row">
+   <div class="col text-center">
+     <h3 class="font-weight-bold text-secondary">Dites qui vous êtes à vos participants!</h3>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
+  <div class="row">
+   <div class="col">
+    <form>
+     <div class="form-group">
+      <label for="id1">Prenom:</label>
+      <input type="text" class="form-control" id="id1" placeholder="Saissisez votre prenom" [(ngModel)]="prenom" name="prenom">
+     </div>
+     <div class="form-group">
+      <label for="id2">Nom de famille:</label>
+      <input type="text" class="form-control" id="id2" placeholder="Saissisez votre nom" [(ngModel)]="nom" name="nom">
+     </div>
+     <div class="form-group">
+      <label for="id3">Courriel:</label>
+      <input type="email" class="form-control" id="id3" placeholder="E-mail" [(ngModel)]="email" name="email">
+     </div>
+     <div class="form-group">
+      <label for="id4">Ajoutez des participants separes par ",":</label>
+      <textarea class="form-control" id="id4" placeholder="Liste de participants" [(ngModel)]="participants" name="participants"></textarea>
+     </div>
+    </form>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+  
+  <div class="row justify-content-center">
+   <div class="col-auto">
+    <button type="button" class="btn btn-outline-info" style="width: 150px" [routerLink]="['/preference']" >Revenir</button>
+   </div>
+   <div class="col-auto">
+    <button type="button" class="btn btn-outline-info" style="width: 150px" (click)="load()">Terminer</button>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
 </div>

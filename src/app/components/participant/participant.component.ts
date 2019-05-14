@@ -12,18 +12,20 @@ export class ParticipantComponent implements OnInit {
   prenom: string;
   nom: string;
   email: string;
-  emails: Array<string>;
+  participants: string;
  
   constructor(
-   private doodleshare: DoodleshareService,
-   private doodleapi: DoodleapiService
+   private doodleshare: DoodleshareService
   ) { }
 
   ngOnInit() {
   }
 
   load(){
-   let c: any = this.doodleapi.postTest();
+   let participants: Array<string> = this.participants.replace(/\s/g, "").split(',');
+   let createur = {prenom: this.prenom, nom: this.nom, email: this.email};
+   this.doodleshare.setCreateur(createur);
+   this.doodleshare.setParticipants(participants);
   }
 
 }

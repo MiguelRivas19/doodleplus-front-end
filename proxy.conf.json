@@ -1,7 +1,12 @@
 {
-  "/api": {
+  "/api/get": {
     "target": "http://localhost:8080/rest/select/",
     "secure": false,
-    "pathRewrite": {"^/api" : ""}
+    "pathRewrite": {"^/api/get" : ""}
+  },
+  "/api/post": {
+    "target": "http://localhost:8080/rest/update/",
+    "secure": false,
+    "pathRewrite": {"^/api/post" : ""}
   }
 }

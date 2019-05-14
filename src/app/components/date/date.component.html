@@ -1,17 +1,90 @@
 <div>
-  date works!
-  <h2>Quelles sont les dates proposées?</h2>
-  Jour: <input type="text" [(ngModel)]="jour"><br />
-  Pause?: <input type="text" [(ngModel)]="pause"><br />
+  <div class="row" style="height: 20px"></div>
+ 
+  <div class="row">
+   <div class="col text-center">
+     <h3 class="font-weight-bold text-secondary">Quelles sont les dates proposées?</h3>
+   </div>
+  </div>
 
-  <h3>Horaire 1</h3>
-  Départ:<input type="text" [(ngModel)]="depart1"><br />
-  Fin: <input type="text" [(ngModel)]="fin1"><br />
+  <div class="row" style="height: 20px"></div>
 
-  <h3>Horaire 2</h3>
-  Départ:<input type="text" [(ngModel)]="depart2"><br />
-  Fin: <input type="text" [(ngModel)]="fin2"><br />
-  <nav>
-    <a [routerLink]="['/preference']" (click)="load()">Next</a>
-  </nav>
+  <div class="row justify-content-center">
+   <div class="col-auto">
+    <form>
+     <div class="form-group">
+      <p>Premiere option:</p>
+      <ngb-datepicker [(ngModel)]="dates[0]" name="date1"></ngb-datepicker>
+     </div>
+     <div class="form-group">
+      <label for="id1">Heure depart:</label>
+      <ngb-timepicker id="id1" [(ngModel)]="departs[0]" name="depart1"></ngb-timepicker>
+     </div>
+     <div class="form-group">
+      <label for="id2">Heure fin:</label>
+      <ngb-timepicker id="id2" [(ngModel)]="fins[0]" name="fin1"></ngb-timepicker>
+     </div>
+     <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="id7" [(ngModel)]="pause[0]" name="pause">
+      <label class="custom-control-label" for="id7">Avec une pause?</label>
+     </div>
+    </form>
+   </div>
+
+   <div class="col-auto">
+    <form>
+     <div class="form-group">
+      <p>Deuxieme option:</p>
+      <ngb-datepicker [(ngModel)]="dates[1]" name="date2"></ngb-datepicker>
+     </div>
+     <div class="form-group">
+      <label for="id3">Heure depart:</label>
+      <ngb-timepicker id="id3" [(ngModel)]="departs[1]" name="depart2"></ngb-timepicker>
+     </div>
+     <div class="form-group">
+      <label for="id4">Heure fin:</label>
+      <ngb-timepicker id="id4" [(ngModel)]="fins[1]" name="fin2"></ngb-timepicker>
+     </div>
+     <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="id8" [(ngModel)]="pause[1]" name="pause">
+      <label class="custom-control-label" for="id8">Avec une pause?</label>
+     </div>
+    </form>
+   </div>
+
+   <div class="col-auto">
+    <form>
+     <div class="form-group">
+      <p>Troisieme option:</p>
+      <ngb-datepicker [(ngModel)]="dates[2]" name="date3"></ngb-datepicker>
+     </div>
+     <div class="form-group">
+      <label for="id5">Heure depart:</label>
+      <ngb-timepicker id="id5" [(ngModel)]="departs[2]" name="depart3"></ngb-timepicker>
+     </div>
+     <div class="form-group">
+      <label for="id6">Heure fin:</label>
+      <ngb-timepicker id="id6" [(ngModel)]="fins[2]" name="fin3"></ngb-timepicker>
+     </div>
+     <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="id9" [(ngModel)]="pause[2]" name="pause">
+      <label class="custom-control-label" for="id9">Avec une pause?</label>
+     </div>
+    </form>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
+  <div class="row justify-content-center">
+   <div class="col-auto">
+    <button type="button" class="btn btn-outline-info" style="width: 150px" [routerLink]="['/']" >Revenir</button>
+   </div>
+   <div class="col-auto">
+    <button type="button" class="btn btn-outline-info" style="width: 150px" [routerLink]="['/preference']" (click)="load()">Suivant</button>
+   </div>
+  </div>
+
+  <div class="row" style="height: 20px"></div>
+
 </div>
