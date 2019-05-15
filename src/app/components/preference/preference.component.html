@@ -13,13 +13,13 @@
    <div class="col">
     <form>
      <div class="form-group">
-      <label for="id1">Choissisez vos preferences:</label>
+      <label for="id1">Choissisez les preferences qui seront dispo pour vos participants:</label>
       <select id="id1" class="custom-select" size="3"  *ngIf="preferences" [(ngModel)]="preference" name="preference" multiple>
        <option *ngFor="let p of preferences" [(ngValue)]="p.intitule" >{{ p.intitule }}</option>
       </select>
      </div>
      <div class="form-group">
-      <label for="id2">Choissisez vos allergies:</label>
+      <label for="id2">Choissisez les allergies qui seront dispo pour vos participants:</label>
       <select id="id2" class="custom-select" size="3" *ngIf="allergies" [(ngModel)]="allergie" name="allergie" multiple>
        <option *ngFor="let a of allergies" [(ngValue)]="a.intitule" >{{ a.intitule }}</option>
       </select>
