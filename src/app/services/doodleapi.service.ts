@@ -34,8 +34,21 @@ export class DoodleapiService {
    return this.get(context);
   }
 
-  post(url:string, test: string){
+  post(url: string, data: any){
+   this.http.post(url, data)
+   .subscribe(
+    res => { console.log(res); },
+    err => { console.log("Error ocurrido, " + err)}
+   );
+  }
 
+  postReunion(reunion: Reunion){
+   let context: string = url + "/post/reunion";
+   return this.post(context, reunion);
+  }
+
+  postTest(){
+   let context: string = url + "/post/test2";
    let c1: Createur = {
     prenom: "miguel",
     nom: "rivas",
@@ -52,27 +65,22 @@ export class DoodleapiService {
    a.push(c1);
    a.push(c2);
 
-
-   this.http.post(url, a)
+   this.http.post(context,"salut!")
    .subscribe(
     res => { console.log(res); },
     err => { console.log("Error ocurrido, " + err)}
    );
   }
 
-  postTest(){
-   let context: string = url + "/post/test2";
-   return this.post(context, "hola");
-  }
-
-  postReunion(reunion: Reunion){
+  postReuniontest(reunion: Reunion){
    console.log("test de reunion");
    let context: string = url + "/post/reunion";
-   this.http.post(context, reunion)
+   let time: NgbTimeStruct = {hour:1, minute:1, second:1};
+   this.http.post(context, time)
    .subscribe(
     res => { console.log(res); },
     err => { console.log("Error ocurrido, " + err)}
    );
- }
+  }
 
 }

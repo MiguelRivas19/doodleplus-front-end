@@ -5,8 +5,6 @@ import { DoodleapiService } from './doodleapi.service';
 
 import { Createur } from '../classes/createur';
 import { Sondage } from '../classes/sondage';
-import { Datesondage } from '../classes/datesondage';
-import { Heuresondage } from '../classes/heuresondage';
 import { Preference } from '../classes/preference';
 import { Allergie } from '../classes/allergie';
 import { Reunion } from '../classes/reunion';
@@ -73,6 +71,5 @@ export class DoodleshareService {
 
   setParticipants(participants: Array<string>){
    this.participants = participants;
-   console.log(participants);
   }
 }
